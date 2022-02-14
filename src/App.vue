@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header  />
+    <Header @clicked="getQuery" />
     <main>
       <div class="box-movie" v-for="(movie, id) in movies" :key="id">
         <MovieCard
@@ -43,13 +43,16 @@ export default {
           lenguage: "it_IT",
         },
       };
-
       axios
         .get(`https://api.themoviedb.org/3/search/movie`, config)
         .then((res) => {
           this.movies = res.data.results;
         });
     },
+
+
+
+
   },
 };
 </script>
