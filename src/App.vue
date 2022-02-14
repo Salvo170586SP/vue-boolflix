@@ -47,15 +47,15 @@ export default {
         .get(`https://api.themoviedb.org/3/search/movie`, config)
         .then((res) => {
           this.movies = res.data.results;
+
         });
     },
+    
     getMovies(searchMovies){
-      this.query = searchMovies;
-    }
+      this.movies = searchMovies;
+    },
 
-
-
-
+    
   },
 };
 </script>

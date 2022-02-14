@@ -13,7 +13,7 @@
 
 export default {
     name: 'MovieCard',
-    props:['originalTitles', 'title', 'lenguage', 'vote'],
+    props:['originalTitle', 'title', 'lenguage', 'vote'],
 }
 </script>
 
