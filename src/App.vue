@@ -1,18 +1,30 @@
 <template>
   <div id="app">
-    <Header />
+    <Header  />
+    <main>
+      <div class="box-movie" v-for="(movie, id) in movies" :key="id">
+        <MovieCard
+          :originalTitle="movie.original_title"
+          :title="movie.title"
+          :lenguage="movie.original_language"
+          :vote="movie.vote_average"
+        />
+      </div>
+    </main>
   </div>
 </template>
 
 <script>
 import axios from "axios";
 import Header from "./components/Header.vue";
+import MovieCard from "./components/MovieCard.vue";
 
 export default {
   name: "App",
-components:{
-  Header,
-},
+  components: {
+    Header,
+    MovieCard,
+  },
 
   data() {
     return {
