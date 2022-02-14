@@ -1,42 +1,45 @@
 <template>
   <div id="app">
-
-
+    <Header />
   </div>
 </template>
 
 <script>
-  import axios from "axios";
- 
+import axios from "axios";
+import Header from "./components/Header.vue";
+
 export default {
-  name: 'App',
-  data(){
-    return{
-      movies:[],
-      apiKey: '52506c224db8dc42f817a52dcdd3da51',
-      query: '',
-    }
+  name: "App",
+components:{
+  Header,
+},
+
+  data() {
+    return {
+      movies: [],
+      apiKey: "52506c224db8dc42f817a52dcdd3da51",
+      query: "",
+    };
   },
 
-  methods:{
-    fetchMovies(){
+  methods: {
+    fetchMovies() {
       const config = {
-        params:
-        {
+        params: {
           apiKey: this.apiKey,
           query: this.query,
           lenguage: "it_IT",
-        }
+        },
       };
 
-      axios.get(`https://api.themoviedb.org/3/search/movie`, config).then((res)=> {
-        this.movies = res.data.results;
-
-      })
-     }
-   }
- 
-}
+      axios
+        .get(`https://api.themoviedb.org/3/search/movie`, config)
+        .then((res) => {
+          this.movies = res.data.results;
+        });
+    },
+  },
+};
 </script>
 
 <style lang="scss">
