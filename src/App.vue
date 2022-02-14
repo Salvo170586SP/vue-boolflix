@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header @clicked="getQuery" />
+    <Header @clicked="getMovies" />
     <main>
       <div class="box-movie" v-for="(movie, id) in movies" :key="id">
         <MovieCard
@@ -49,6 +49,9 @@ export default {
           this.movies = res.data.results;
         });
     },
+    getMovies(searchMovies){
+      this.query = searchMovies;
+    }
 
 
 
