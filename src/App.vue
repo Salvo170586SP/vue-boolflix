@@ -5,9 +5,9 @@
       name="textMovie"
       id="textMovie"
       v-model="search"
-      @keyup.enter="onSearch"
+      @keyup.enter="fetchMovies"
     />
-    <button type="button" @click="onSearch">Cerca</button>
+    <button type="button" @click="fetchMovies">Cerca</button>
 
     <main>
       <div class="box-movie" v-for="(movie, id) in movies" :key="id">
@@ -31,6 +31,7 @@ export default {
   data() {
     return {
       movies: [],
+
       api_key: "52506c224db8dc42f817a52dcdd3da51",
       query: "",
       search:'',
@@ -42,7 +43,7 @@ export default {
       const config = {
         params: {
           api_key: this.api_key,
-          query: this.query,
+          query: this.search,
           lenguage: "it_IT",
         },
       };
@@ -52,14 +53,6 @@ export default {
           this.movies = res.data.results;
         })
     },
-
-    onSearch(search){
-      this.movies = search;
-    },
-    
-  },
-  created() {
-    this.fetchMovies();
   },
 };
 </script>
