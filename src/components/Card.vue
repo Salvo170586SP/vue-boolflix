@@ -1,5 +1,6 @@
 <template>
   <ul>
+    <li><img :src="`https://image.tmdb.org/t/p/w342/${item.poster_path}`" :alt="item.title || item.name"></li>
     <li>{{ item.title || item.name}}</li>
     <li>{{ item.original_title || item.name }}</li>
     <li>
@@ -15,7 +16,7 @@
 <script>
 export default {
   name: "Card",
-  props: ["item"],
+  props: ["item", "image"],
 
   data() {
     return {

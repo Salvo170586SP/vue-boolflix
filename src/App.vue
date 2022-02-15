@@ -6,7 +6,7 @@
     <main>
       <div id="movie">
         <h1>FILM</h1>
-        <Card v-for="movie in movies" :key="movie.id" :item="movie" />
+        <Card v-for="movie in movies" :key="movie.id" :item="movie"  />
       </div>
       <div id="serie tv">
         <h1>SERIE TV</h1>
@@ -33,10 +33,12 @@ export default {
       movies: [],
       series: [],
 
+
       api: {
         language: "it-IT",
         baseUri: "https://api.themoviedb.org/3",
         key: "52506c224db8dc42f817a52dcdd3da51",
+        uriImg:'https://image.tmdb.org/t/p/',
       },
     };
   },
