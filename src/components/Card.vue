@@ -1,21 +1,21 @@
 <template>
   <ul>
-    <li>{{ movie.original_title }}</li>
-    <li>{{ movie.title }}</li>
+    <li>{{ item.title }}</li>
+    <li>{{ item.original_title }}</li>
     <li>
-      <img  v-if="hasFlags" :src="imgFlag" :alt="movie.original_language" />
+      <img  v-if="hasFlags" :src="imgFlag" :alt="item.original_language" />
       <span v-else >
-        {{ movie.original_language }}
+        {{ item.original_language }}
       </span>
     </li>
-    <li>{{ movie.vote_average }}</li>
+    <li>{{ item.vote_average }}</li>
   </ul>
 </template>
 
 <script>
 export default {
   name: "Card",
-  props: ["movie"],
+  props: ["item"],
 
   data() {
     return {
@@ -24,10 +24,10 @@ export default {
   },
   computed: {
     imgFlag() {
-      return require(`../assets/img/${this.movie.original_language}.png`);
+      return require(`../assets/img/${this.item.original_language}.png`);
     },
     hasFlags() {
-      return this.flags.includes(this.movie.original_language);
+      return this.flags.includes(this.item.original_language);
     },
    
   },

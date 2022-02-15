@@ -1,31 +1,28 @@
 <template>
   <div id="app">
     <header>
-      <input
-      type="text"
-      name="textMovie"
-      id="textMovie"
-      v-model="search"
-      @keyup.enter="fetchMovies"
-    />
-    <button type="button" @click="fetchMovies">Cerca</button>
+      <Search />
     </header>
-    
     <main>
-      <Card v-for="(movie, id) in movies" :key="id" :movie="movie"/>
-       
+      <div id="movie">
+        <h1>MOVIE CARD</h1>
+        <Card v-for="movie in movies" :key="movie.id" :item="movie" />
+      </div>
+
     </main>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-import Card from "./components/Card.vue"
+import Card from "./components/Card.vue";
+import Search from './components/Search.vue';
 
 export default {
   name: "App",
-  components:{
+  components: {
     Card,
+    Search,
   },
 
   data() {
@@ -34,7 +31,7 @@ export default {
 
       api_key: "52506c224db8dc42f817a52dcdd3da51",
       query: "",
-      search:'',
+      search: "",
     };
   },
 
@@ -52,7 +49,7 @@ export default {
         .get(`https://api.themoviedb.org/3/search/movie`, config)
         .then((res) => {
           this.movies = res.data.results;
-        })
+        });
     },
   },
 };
