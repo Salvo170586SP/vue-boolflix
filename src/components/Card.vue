@@ -10,7 +10,7 @@
         {{ item.original_language }}
       </span>
     </li>
-    <li>{{ parseInt(item.vote_average) }}</li>
+    <li>{{ voteItem }}</li>
   </ul>
 </template>
 
@@ -31,6 +31,9 @@ export default {
     hasFlags() {
       return this.flags.includes(this.item.original_language);
     },
+    voteItem(){
+        return parseInt(this.item.vote_average)
+    }
   },
 };
 </script>
