@@ -1,13 +1,18 @@
 <template>
   <div>
-    <input
-      type="text"
-      name="textMovie"
-      id="textMovie"
-      v-model="searchTerm"
-      @keyup.enter="emitSearch"
-    />
-    <button type="button" @click="emitSearch">Cerca</button>
+    <div class="input-group mb-3 ">
+      <input
+        type="text"
+        name="textMovie"
+        id="textMovie"
+        class="form-control"
+        v-model="searchTerm"
+        @keyup.enter="emitSearch"
+      />
+      <button type="button" class="btn btn-danger" @click="emitSearch">
+        Cerca
+      </button>
+    </div>
   </div>
 </template>
 
