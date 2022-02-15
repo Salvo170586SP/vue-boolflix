@@ -49,6 +49,11 @@ export default {
 
   methods: {
     search(searchTerm) {
+      if(!searchTerm){
+        this.movies = [];
+        this.series = [];
+        return
+      }
       const { key, lenguage } = this.api;
 
       const config = {
