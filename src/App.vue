@@ -5,8 +5,12 @@
     </header>
     <main>
       <div id="movie">
-        <h1>MOVIE CARD</h1>
+        <h1>FILM</h1>
         <Card v-for="movie in movies" :key="movie.id" :item="movie" />
+      </div>
+      <div id="serie tv">
+        <h1>SERIE TV</h1>
+        <Card v-for="serie in series" :key="serie.id" :item="serie" />
       </div>
     </main>
   </div>

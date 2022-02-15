@@ -1,7 +1,7 @@
 <template>
   <ul>
-    <li>{{ item.title }}</li>
-    <li>{{ item.original_title }}</li>
+    <li>{{ item.title || item.name}}</li>
+    <li>{{ item.original_title || item.name }}</li>
     <li>
       <img  v-if="hasFlags" :src="imgFlag" :alt="item.original_language" />
       <span v-else >
