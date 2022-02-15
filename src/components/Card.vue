@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul class="card-item m-5">
     <li v-if="item.poster_path"><img :src="`https://image.tmdb.org/t/p/w342/${item.poster_path}`" :alt="item.title || item.name"></li>
     <li v-else><img src="../assets/img/placeholder.jpg" :alt="item.title || item.name"></li>
     <li>{{ item.title || item.name}}</li>
@@ -38,5 +38,8 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" >
+.card-item{
+    border: 2px solid red;
+ }
 </style>

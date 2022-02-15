@@ -1,12 +1,13 @@
 <template>
   <div id="app">
-    <header class="bg-dark py-3 ">
+    <header class="bg-dark py-3 position-fixed w-100">
       <div class="container d-flex justify-content-between align-items-center">
         <h1 class="text-danger">BOOLFLIX</h1>
         <Search @search="search" />
       </div>
     </header>
-    <main>
+
+    <main class="container d-flex flex-wrap">
       <div id="movie">
         <h1>FILM</h1>
         <Card v-for="movie in movies" :key="movie.id" :item="movie" />
@@ -16,6 +17,7 @@
         <Card v-for="serie in series" :key="serie.id" :item="serie" />
       </div>
     </main>
+
   </div>
 </template>
 
@@ -71,4 +73,9 @@ export default {
 
 <style lang="scss" >
 @import "./assets/scss/style.scss";
+
+body{
+  background-color: #434343;
+  color: white;
+}
 </style>
