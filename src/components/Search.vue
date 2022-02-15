@@ -4,7 +4,7 @@
       type="text"
       name="textMovie"
       id="textMovie"
-      v-model="search"
+      v-model="searchTerm"
       @keyup.enter="emitSearch"
     />
     <button type="button" @click="emitSearch">Cerca</button>
@@ -14,11 +14,17 @@
 <script>
 export default {
   name: "Search",
-  methods:{
-    
-  }
+  data() {
+    return {
+      searchTerm: "",
+    };
+  },
+  methods: {
+    emitSearch() {
+      this.$emit("search", this.searchTerm);
+    },
+  },
 };
-
 </script>
 
 <style>

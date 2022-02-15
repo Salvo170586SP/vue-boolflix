@@ -1,14 +1,13 @@
 <template>
   <div id="app">
     <header>
-      <Search />
+      <Search @search="search" />
     </header>
     <main>
       <div id="movie">
         <h1>MOVIE CARD</h1>
         <Card v-for="movie in movies" :key="movie.id" :item="movie" />
       </div>
-
     </main>
   </div>
 </template>
@@ -16,7 +15,7 @@
 <script>
 import axios from "axios";
 import Card from "./components/Card.vue";
-import Search from './components/Search.vue';
+import Search from "./components/Search.vue";
 
 export default {
   name: "App",
@@ -28,28 +27,35 @@ export default {
   data() {
     return {
       movies: [],
+      series: [],
 
-      api_key: "52506c224db8dc42f817a52dcdd3da51",
-      query: "",
-      search: "",
+      api: {
+        language: "it-IT",
+        baseUri: "https://api.themoviedb.org/3",
+        key: "52506c224db8dc42f817a52dcdd3da51",
+      },
     };
   },
 
   methods: {
-    fetchMovies() {
+    search(searchTerm) {
+      const { key, lenguage } = this.api;
+
       const config = {
         params: {
-          api_key: this.api_key,
-          query: this.search,
-          lenguage: "it_IT",
+          api_key: key,
+          query: searchTerm,
+          lenguage,
         },
       };
+      this.fetchApi("search/movie", config, "movies");
+      this.fetchApi("search/tv", config, "series");
+    },
 
-      axios
-        .get(`https://api.themoviedb.org/3/search/movie`, config)
-        .then((res) => {
-          this.movies = res.data.results;
-        });
+    fetchApi(endpoint, config, target) {
+      axios.get(`${this.api.baseUri}/${endpoint}`, config).then((res) => {
+        this[target] = res.data.results;
+      });
     },
   },
 };
