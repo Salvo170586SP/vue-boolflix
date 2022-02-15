@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <input
+    <header>
+      <input
       type="text"
       name="textMovie"
       id="textMovie"
@@ -8,25 +9,24 @@
       @keyup.enter="fetchMovies"
     />
     <button type="button" @click="fetchMovies">Cerca</button>
-
+    </header>
+    
     <main>
-      <div class="box-movie" v-for="(movie, id) in movies" :key="id">
-        <ul>
-          <li>{{ movie.original_title }}</li>
-          <li>{{ movie.title }}</li>
-          <li>{{ movie.original_language }}</li>
-          <li>{{ movie.vote_average }}</li>
-        </ul>
-      </div>
+      <Card v-for="(movie, id) in movies" :key="id" :movie="movie"/>
+       
     </main>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import Card from "./components/Card.vue"
 
 export default {
   name: "App",
+  components:{
+    Card,
+  },
 
   data() {
     return {
@@ -47,6 +47,7 @@ export default {
           lenguage: "it_IT",
         },
       };
+
       axios
         .get(`https://api.themoviedb.org/3/search/movie`, config)
         .then((res) => {
