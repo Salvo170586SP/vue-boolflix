@@ -32,7 +32,7 @@ export default {
       return this.flags.includes(this.item.original_language);
     },
     voteItem(){
-        return parseInt(this.item.vote_average)
+        return parseInt(this.item.vote_average) / 2;
     }
   },
 };
