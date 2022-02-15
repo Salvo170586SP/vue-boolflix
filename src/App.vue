@@ -1,14 +1,22 @@
 <template>
   <div id="app">
-    <Header @clicked="getMovies" />
+    <input
+      type="text"
+      name="textMovie"
+      id="textMovie"
+      v-model="search"
+      @keyup.enter="onSearch"
+    />
+    <button type="button" @click="onSearch">Cerca</button>
+
     <main>
       <div class="box-movie" v-for="(movie, id) in movies" :key="id">
-        <MovieCard
-          :originalTitle="movie.original_title"
-          :title="movie.title"
-          :lenguage="movie.original_language"
-          :vote="movie.vote_average"
-        />
+        <ul>
+          <li>{{ movie.original_title }}</li>
+          <li>{{ movie.title }}</li>
+          <li>{{ movie.original_language }}</li>
+          <li>{{ movie.vote_average }}</li>
+        </ul>
       </div>
     </main>
   </div>
@@ -16,21 +24,16 @@
 
 <script>
 import axios from "axios";
-import Header from "./components/Header.vue";
-import MovieCard from "./components/MovieCard.vue";
 
 export default {
   name: "App",
-  components: {
-    Header,
-    MovieCard,
-  },
 
   data() {
     return {
       movies: [],
-      apiKey: "52506c224db8dc42f817a52dcdd3da51",
+      api_key: "52506c224db8dc42f817a52dcdd3da51",
       query: "",
+      search:'',
     };
   },
 
@@ -38,7 +41,7 @@ export default {
     fetchMovies() {
       const config = {
         params: {
-          apiKey: this.apiKey,
+          api_key: this.api_key,
           query: this.query,
           lenguage: "it_IT",
         },
@@ -47,15 +50,16 @@ export default {
         .get(`https://api.themoviedb.org/3/search/movie`, config)
         .then((res) => {
           this.movies = res.data.results;
-
-        });
-    },
-    
-    getMovies(searchMovies){
-      this.movies = searchMovies;
+        })
     },
 
+    onSearch(search){
+      this.movies = search;
+    },
     
+  },
+  created() {
+    this.fetchMovies();
   },
 };
 </script>
