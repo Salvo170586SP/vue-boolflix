@@ -1,6 +1,7 @@
 <template>
   <ul>
-    <li><img :src="`https://image.tmdb.org/t/p/w342/${item.poster_path}`" :alt="item.title || item.name"></li>
+    <li v-if="item.poster_path"><img :src="`https://image.tmdb.org/t/p/w342/${item.poster_path}`" :alt="item.title || item.name"></li>
+    <li v-else><img src="../assets/img/placeholder.jpg" :alt="item.title || item.name"></li>
     <li>{{ item.title || item.name}}</li>
     <li>{{ item.original_title || item.name }}</li>
     <li>
@@ -16,7 +17,7 @@
 <script>
 export default {
   name: "Card",
-  props: ["item", "image"],
+  props: ["item"],
 
   data() {
     return {
@@ -31,6 +32,7 @@ export default {
       return this.flags.includes(this.item.original_language);
     },
    
+
   },
 };
 </script>
