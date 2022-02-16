@@ -8,7 +8,7 @@
     </header>
 
     <main class="container">
-      <h1  class="text-center text-danger my-5">CERCA I TUOI FILM E SERIE TV PREFERITI</h1>
+      <h1 v-if="!this.movies.length && !this.series.length" class="text-center text-danger my-5">CERCA I TUOI FILM E SERIE TV PREFERITI</h1>
       <div id="movie" class="d-flex flex-wrap justify-content-center">
         <h2 v-if="this.movies.length">FILM</h2>
         <Card v-for="movie in movies" :key="movie.id" :item="movie" />
