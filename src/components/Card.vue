@@ -1,5 +1,5 @@
 <template>
-  <div class="card-item bg-dark shadow m-1 p-1">
+  <div class="card-item bg-dark shadow m-1">
     <img
       class="img-cover img-fluid"
       v-if="item.poster_path"

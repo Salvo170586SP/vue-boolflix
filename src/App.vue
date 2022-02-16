@@ -82,6 +82,11 @@ body {
   background-color: #434343;
   color: white;
 }
+
+header{
+  z-index: 1;
+}
+
 main {
   padding-top: 110px;
 }
