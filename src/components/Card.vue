@@ -9,7 +9,7 @@
     <div v-else>
       <img
         class="img-default"
-        src="../assets/img/placeholder.jpg"
+        src="https://www.altavod.com/assets/images/poster-placeholder.png"
         :alt="item.title || item.name"
       />
     </div>
@@ -27,7 +27,7 @@
           {{ item.original_language }}
         </span>
       </div>
-      <div>{{ voteItem }}</div>
+      <i v-for="n in 5" :key="n" class="fa-star" :class="n <= voteItem ? 'fa-solid' : 'fa-regular'"></i>
     </div>
   </div>
 </template>
@@ -62,11 +62,6 @@ export default {
 }
 .w-35 {
   width: 35px;
-}
-
-.img-default{
-    width: 342px;
-    height: 513px;
 }
 
 /* .text-card {
