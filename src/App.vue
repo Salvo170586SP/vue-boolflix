@@ -83,7 +83,7 @@ body {
   color: white;
 }
 
-header{
+header {
   z-index: 1;
 }
 

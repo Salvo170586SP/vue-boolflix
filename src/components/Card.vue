@@ -67,7 +67,9 @@ export default {
 .card-item {
   position: relative;
   background: black;
+  border: 3px solid white;
   height: 500px;
+  cursor: pointer;
 }
 .w-35 {
   width: 35px;
