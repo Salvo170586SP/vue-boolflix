@@ -7,7 +7,7 @@
       :alt="item.title || item.name"
     />
     <img
-      class="img-default img-fluid"
+      class="img-cover img-fluid"
       v-else
       src="https://www.altavod.com/assets/images/poster-placeholder.png"
       :alt="item.title || item.name"
@@ -88,7 +88,7 @@ img {
   display: block;
 }
 
-.card-item:hover img{
+.card-item:hover .img-cover{
   display: none;
 }
 </style>
