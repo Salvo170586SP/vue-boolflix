@@ -21,7 +21,7 @@ export default {
   name: "Search",
   data() {
     return {
-      searchTerm: "games",
+      searchTerm: "",
     };
   },
   methods: {

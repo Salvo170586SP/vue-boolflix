@@ -12,8 +12,8 @@
         <h2>FILM</h2>
         <Card v-for="movie in movies" :key="movie.id" :item="movie" />
       </div>
-      <div id="serie tv" class="d-flex flex-wrap justify-content-center my-5">
-        <h2>SERIE TV</h2>
+      <div  id="serie tv" class="d-flex flex-wrap justify-content-center my-5">
+        <h2 v-if="this.series.length">SERIE TV</h2>
         <Card v-for="serie in series" :key="serie.id" :item="serie" />
       </div>
     </main>
