@@ -8,12 +8,17 @@
     </header>
 
     <main class="container">
-      <h1 v-if="!this.movies.length && !this.series.length" class="text-center text-danger my-5">CERCA I TUOI FILM E SERIE TV PREFERITI</h1>
+      <h1
+        v-if="!this.movies.length && !this.series.length"
+        class="text-center text-danger my-5"
+      >
+        CERCA I TUOI FILM E SERIE TV PREFERITI
+      </h1>
       <div id="movie" class="d-flex flex-wrap justify-content-center">
         <h2 v-if="this.movies.length">FILM</h2>
         <Card v-for="movie in movies" :key="movie.id" :item="movie" />
       </div>
-      <div  id="serie tv" class="d-flex flex-wrap justify-content-center my-5">
+      <div id="serie tv" class="d-flex flex-wrap justify-content-center my-5">
         <h2 v-if="this.series.length">SERIE TV</h2>
         <Card v-for="serie in series" :key="serie.id" :item="serie" />
       </div>
@@ -82,21 +87,22 @@ export default {
 body {
   background-color: #434343;
   color: white;
-}
 
-header {
-  z-index: 1;
-}
+  header {
+    z-index: 1;
+  }
 
-main {
-  padding-top: 110px;
-}
+  main {
+    padding-top: 110px;
+    
+    h2 {
+      width: 100%;
+      text-align: center;
+    }
 
-ul {
-  list-style-type: none;
-}
-h2 {
-  width: 100%;
-  text-align: center;
+    ul {
+      list-style-type: none;
+    }
+  }
 }
 </style>
