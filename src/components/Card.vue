@@ -40,6 +40,7 @@
           :class="n <= voteItem ? 'fa-solid' : 'fa-regular'"
         ></i>
       </div>
+      <div class="overview mt-3">TRAMA: {{ item.overview }}</div>
     </div>
   </div>
 </template>
@@ -102,5 +103,11 @@ export default {
     transition: 0.3s;
     opacity: 0.1;
   }
+
+.overview{
+  height: 250px;
+  overflow: auto;
+}
+
 }
 </style>
