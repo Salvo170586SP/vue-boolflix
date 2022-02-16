@@ -7,15 +7,16 @@
       </div>
     </header>
 
-    <main class="container  ">
+    <main class="container">
       <div id="movie" class="d-flex flex-wrap justify-content-center">
+        <h2>FILM</h2>
         <Card v-for="movie in movies" :key="movie.id" :item="movie" />
       </div>
-      <div id="serie tv" class="d-flex flex-wrap">
+      <div id="serie tv" class="d-flex flex-wrap justify-content-center my-5">
+        <h2>SERIE TV</h2>
         <Card v-for="serie in series" :key="serie.id" :item="serie" />
       </div>
     </main>
-
   </div>
 </template>
 
@@ -47,10 +48,10 @@ export default {
 
   methods: {
     search(searchTerm) {
-      if(!searchTerm){
+      if (!searchTerm) {
         this.movies = [];
         this.series = [];
-        return
+        return;
       }
       const { key, lenguage } = this.api;
 
@@ -77,14 +78,18 @@ export default {
 <style lang="scss" >
 @import "./assets/scss/style.scss";
 
-body{
+body {
   background-color: #434343;
   color: white;
 }
-main{
+main {
   padding-top: 110px;
 }
-ul{
+ul {
   list-style-type: none;
+}
+h2 {
+  width: 100%;
+  text-align: center;
 }
 </style>

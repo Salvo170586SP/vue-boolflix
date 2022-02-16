@@ -1,18 +1,14 @@
 <template>
-  <div class="card-item bg-dark  shadow m-1">
-    <div v-if="item.poster_path">
-      <img 
+  <div class="card-item bg-dark  shadow m-1 p-1 ">
+      <img class="img-cover img-fluid" v-if="item.poster_path"
         :src="`https://image.tmdb.org/t/p/w342/${item.poster_path}`"
         :alt="item.title || item.name"
       />
-    </div>
-    <div v-else>
       <img
-        class="img-default"
+        class="img-default img-fluid" v-else
         src="https://www.altavod.com/assets/images/poster-placeholder.png"
         :alt="item.title || item.name"
       />
-    </div>
     <div class="text-card">
       <div>{{ item.title || item.name }}</div>
       <div>{{ item.original_title || item.name }}</div>
@@ -58,17 +54,23 @@ export default {
 
 <style lang="scss" >
 .card-item{
+  width: 300px ;
     cursor: pointer;
 }
 .w-35 {
   width: 35px;
 }
 
+img{
+  height: 100%;
+}
+ 
+
 /* .text-card {
     display: none;
-}
-
-.card-item > .text-card:hover{
-    display: block;
 } */
+
+/* .card-item > .text-card:hover{
+    display: block;
+}  */
 </style>
