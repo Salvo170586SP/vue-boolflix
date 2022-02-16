@@ -9,7 +9,7 @@
 
     <main class="container">
       <div id="movie" class="d-flex flex-wrap justify-content-center">
-        <h2>FILM</h2>
+        <h2 v-if="this.movies.length">FILM</h2>
         <Card v-for="movie in movies" :key="movie.id" :item="movie" />
       </div>
       <div  id="serie tv" class="d-flex flex-wrap justify-content-center my-5">
