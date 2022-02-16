@@ -7,13 +7,11 @@
       </div>
     </header>
 
-    <main class="container d-flex flex-wrap">
-      <div id="movie">
-        <h1>FILM</h1>
+    <main class="container  ">
+      <div id="movie" class="d-flex flex-wrap justify-content-center">
         <Card v-for="movie in movies" :key="movie.id" :item="movie" />
       </div>
-      <div id="serie tv">
-        <h1>SERIE TV</h1>
+      <div id="serie tv" class="d-flex flex-wrap">
         <Card v-for="serie in series" :key="serie.id" :item="serie" />
       </div>
     </main>
@@ -82,5 +80,11 @@ export default {
 body{
   background-color: #434343;
   color: white;
+}
+main{
+  padding-top: 110px;
+}
+ul{
+  list-style-type: none;
 }
 </style>
