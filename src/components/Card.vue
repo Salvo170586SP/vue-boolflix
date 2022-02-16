@@ -14,7 +14,7 @@
     />
     <div class="text-card p-3">
       <div class="mb-1">TITOLO: <span class="ms-1">{{ item.title || item.name }}</span></div>
-      <div class="mb-1">TITOLO originale: {{ item.original_title || item.name }}</div>
+      <div class="mb-1">TITOLO ORIGINALE: {{ item.original_title || item.name }}</div>
       <div class="mb-1">LINGUA: 
         <img
           class="w-35"
@@ -96,6 +96,7 @@ img {
 }
 
 .card-item:hover .img-cover{
+  transition: 0.3s;
   opacity: 0.1;
 }
 </style>
